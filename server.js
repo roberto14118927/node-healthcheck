@@ -6,7 +6,7 @@ app.use(helmet());
 app.use(express.json());
 
 app.get('/healthcheck', (_req, res) => {
-  res.status(200).json({ status: 'UP Main', timestamp: new Date().toISOString() });
+  res.status(200).json({ status: 'UP multi', timestamp: new Date().toISOString() });
 });
 
 app.get('/names', (_req, res) => {

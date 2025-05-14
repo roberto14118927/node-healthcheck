@@ -10,6 +10,7 @@ pipeline {
         SSH_KEY = credentials('ssh-key-ec2')
         DEV_IP = '3.92.207.25'
         QA_IP  = '35.172.215.16'
+        STAGING_IP = '18.208.211.69'
         PROD_IP = '54.235.24.207'
         REMOTE_PATH = '/home/ubuntu/node-healthcheck'
     }
@@ -29,6 +30,7 @@ pipeline {
                 script {
                     def ip = env.ACTUAL_BRANCH == 'develop' ? DEV_IP :
                              env.ACTUAL_BRANCH == 'qa'      ? QA_IP :
+                                params.APP_BRANCH == 'staging'      ? STAGING_IP :
                              env.ACTUAL_BRANCH == 'main'    ? PROD_IP : null
 
                     def pm2_name = "${env.ACTUAL_BRANCH}-health"

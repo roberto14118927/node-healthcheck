@@ -9,7 +9,7 @@ app.get('/healthcheck', (_req, res) => {
   res.status(200).json({ status: 'UP Main', timestamp: new Date().toISOString() });
 });
 
-app.get('/name', (_req, res) => {
+app.get('/names', (_req, res) => {
   res.status(200).json({ author: 'Roberto Eduardo Guzman Ruiz' });
 });
 
